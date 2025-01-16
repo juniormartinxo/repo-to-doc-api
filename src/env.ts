@@ -14,19 +14,6 @@ const envSchema = z.object({
   TRACK_LOG_PATH: z.string({
     message: 'Insira um caminho válido para os arquivos de log',
   }),
-  ELASTIC_PORT: z.string({
-    message: 'Insira uma porta válida para o Elasticsearch',
-  }),
-  LOGSTASH_PORT: z.string({
-    message: 'Insira uma porta válida para o Logstash',
-  }),
-
-  // Netfactor database
-  AFA_BD_HOST: z.string({ message: 'Insira um host válido' }),
-  AFA_BD_PORT: z.string({ message: 'Insira uma porta válida' }),
-  AFA_BD_USERNAME: z.string({ message: 'Insira um usuário válido' }),
-  AFA_BD_PASSWORD: z.string({ message: 'Insira uma senha válida' }),
-  AFA_BD_NAME: z.string({ message: 'Insira um nome de banco válido' }),
 
   // Postgres database
   POSTGRES_HOST: z.string({ message: 'Insira um host válido' }),
@@ -88,80 +75,6 @@ const envSchema = z.object({
 
   // JWT config
   JWT_SECRET: z.string({ message: 'Insira um segredo válido para o JWT' }),
-
-  // AFA Urls Web
-  AFA_CRED_URL: z
-    .string({ message: 'Insira a URL para AFA_CRED_URL' })
-    .url({ message: 'Insira uma URL válida para AFA_CRED_URL' }),
-  AFA_ADMIN_URL: z
-    .string({ message: 'Insira a URL para AFA_ADMIN_URL' })
-    .url({ message: 'Insira uma URL válida para AFA_ADMIN_URL' }),
-
-  // AFA Ursl Local
-  AFA_CRED_URL_LOCAL: z
-    .string({ message: 'Insira a URL para AFA_CRED_URL_LOCAL' })
-    .url({ message: 'Insira uma URL válida para AFA_CRED_URL_LOCAL' }),
-  AFA_ADMIN_URL_LOCAL: z
-    .string({ message: 'Insira a URL para AFA_ADMIN_URL_LOCAL' })
-    .url({ message: 'Insira uma URL válida para AFA_ADMIN_URL_LOCAL' }),
-
-  // Slack
-  SLACK_SIGNING_SECRET: z.string({
-    message: 'Insira um segredo válido para o Slack',
-  }),
-  SLACK_BOT_TOKEN: z.string({ message: 'Insira um token válido para o Slack' }),
-  SLACK_APP_TOKEN: z.string({
-    message: 'Insira um token de aplicativo válido para o Slack',
-  }),
-  SLACK_WEBHOOK_CHANNEL_AFABOT: z
-    .string({ message: 'Insira um webhook para o canal do Slack AFABOT' })
-    .url({
-      message: 'Insira uma URL válida para o webhook do canal do Slack AFABOT',
-    }),
-  SLACK_WEBHOOK_CHANNEL_WEBCRED: z
-    .string({ message: 'Insira um webhook para o canal do Slack WEBCRED' })
-    .url({
-      message: 'Insira uma URL válida para o webhook do canal do Slack WEBCRED',
-    }),
-  SLACK_CHANNEL_NEW_LEAD_NOTIFICATION: z.string({
-    message: 'Insira um canal válido para notificação de novos leads',
-  }),
-  SLACK_IS_NOTIFY: z
-    .enum(['true', 'false'], {
-      message: 'Insira um valor booleano para SLACK_IS_NOTIFY',
-    })
-    .transform((val) => val === 'true'),
-
-  VADU_URL: z.string({ message: 'Insira uma URL válida para o VADU' }),
-  VADU_URL_V2: z.string({ message: 'Insira uma URL válida para o VADU' }),
-  VADU_API_KEY: z.string({
-    message: 'Insira uma chave de API válida para o VADU',
-  }),
-  VADU_API_ID: z.string({ message: 'Insira um ID de API válido para o VADU' }),
-  VADU_APP_SECRET: z.string({
-    message: 'Insira um segredo de aplicativo válido para o VADU',
-  }),
-
-  // API CNPJ WS config
-  CNPJ_WS_PUBLIC_URL: z
-    .string({ message: 'Insira uma URL válida para a API CNPJ WS' })
-    .url({ message: 'Insira uma URL válida para a API CNPJ WS' }),
-  CNPJ_WS_COMMERCIAL_URL: z
-    .string({ message: 'Insira uma URL válida para a API CNPJ WS' })
-    .url({ message: 'Insira uma URL válida para a API CNPJ WS' }),
-  CNPJ_WS_TOKEN: z.string({
-    message: 'Insira um token válido para a API CNPJ WS',
-  }),
-  CNPS_WS_COMMERCIAL_ACTIVE: z
-    .enum(['true', 'false'], {
-      message: 'Insira um valor booleano para CNPS_WS_COMERCIAL_ACTIVE',
-    })
-    .transform((val) => val === 'true'),
-
-  // API SERASA config
-  SERASA_PUBLIC_URL: z
-    .string({ message: 'Insira uma URL válida para a API SERASA' })
-    .url({ message: 'Insira uma URL válida para a API SERASA' }),
 
   // Prisma database
   DATABASE_URL: z
